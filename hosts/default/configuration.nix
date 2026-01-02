@@ -78,13 +78,6 @@
     shell = pkgs.fish;
   };
 
-  home-manager = {
-  	extraSpecialArgs = { inherit inputs; };
-    users = {
-      "timothy" = import ./home.nix;
-    };
-  };
-
   # Install firefox.
   # programs.firefox.enable = true;
 
