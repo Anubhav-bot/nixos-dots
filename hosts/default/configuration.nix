@@ -103,6 +103,7 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    home-manager
     nh
     vesktop
     firefox
