@@ -26,6 +26,7 @@
     obsidian
     vscode
     aria2
+    yt-dlp
     waybar
     google-chrome
     mpv
