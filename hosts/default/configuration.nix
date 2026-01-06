@@ -166,6 +166,7 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  programs.kdeconnect.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
