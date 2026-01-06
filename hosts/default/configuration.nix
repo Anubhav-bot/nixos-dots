@@ -69,7 +69,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.defaultUserShell = pkgs.fish;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.timothy = {
     isNormalUser = true;
@@ -78,12 +77,12 @@
     shell = pkgs.fish;
   };
 
-  # Install firefox.
-  # programs.firefox.enable = true;
-
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  #Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   programs.hyprland = {
       enable = true;
@@ -91,42 +90,60 @@
   };
 
   programs.fish.enable = true;
+  programs.auto-cpufreq.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     git
+    nix-search-cli
+    firefox
+    font-manager
+    kitty
+    brightnessctl
+    networkmanagerapplet
+    fzf
+    playerctl
     home-manager
     nh
-    vesktop
-    firefox
-    clang
-    waybar
-    google-chrome
-    mpv
-    kitty
-    neovim
-    yazi
-    zoxide
-    starship
-    viber
-    brightnessctl
-    playerctl
-    fzf
-    nerd-fonts.ubuntu-mono
-    tealdeer
-    auto-cpufreq
     interception-tools
+    tealdeer
     interception-tools-plugins.caps2esc
-    btop
-    tmux
-    imv
-    vicinae
-    lutris
     ly
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.ubuntu-mono
+    nerd-fonts.fira-code
+    texlivePackages.noto-emoji
+  ];
 
+  fonts.fontconfig = {
+    enable = true; #default, not needed
+    # defaultFonts.emoji = [ "Noto Emoji" ];
+
+    # localConf = ''
+    #   <selectfont>
+    #     <rejectfont>
+    #       <pattern>
+    #         <patelt name="family">
+    #           <string>Noto Color Emoji</string>
+    #         </patelt>
+    #       </pattern>
+    #     </rejectfont>
+    #   </selectfont>
+    # '';
+  };
+
+  environment.variables = {
+    QT_QPA_PLATFORMTHEME="qt5ct";
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

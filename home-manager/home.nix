@@ -1,6 +1,6 @@
 {
   imports = [
-    ./packages.nix
+    ./packages/default.nix
   ];
   
   home.username = "timothy";
@@ -9,7 +9,6 @@
 
   home.file = {
   };
-
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
