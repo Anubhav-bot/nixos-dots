@@ -25,6 +25,7 @@
     lazygit
     obsidian
     vscode
+    aria2
     waybar
     google-chrome
     mpv
