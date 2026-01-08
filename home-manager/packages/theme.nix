@@ -28,6 +28,15 @@
     theme.name = "Tokyonight-Dark";
   };
 
+  home.pointerCursor = {
+    name = "capitaine-cursors";
+    package = pkgs.capitaine-cursors;
+    size = 24;
+
+    hyprcursor.enable = true;
+  };
+
+
   home.sessionVariables = {
     # QT_QPA_PLATFORMTHEME = "qt5ct";
   };

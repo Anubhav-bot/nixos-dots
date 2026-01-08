@@ -35,7 +35,6 @@
     yazi
     zoxide
     starship
-    btop
     tmux
     imv
     vicinae

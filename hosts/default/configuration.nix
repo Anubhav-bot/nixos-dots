@@ -104,6 +104,7 @@
     networkmanagerapplet
     fzf
     playerctl
+    btop
     home-manager
     nh
     interception-tools
@@ -115,24 +116,18 @@
   fonts.packages = with pkgs; [
     nerd-fonts.ubuntu-mono
     nerd-fonts.fira-code
+    ubuntu-sans
     texlivePackages.noto-emoji
   ];
 
   fonts.fontconfig = {
     enable = true; #default, not needed
-    # defaultFonts.emoji = [ "Noto Emoji" ];
-
-    # localConf = ''
-    #   <selectfont>
-    #     <rejectfont>
-    #       <pattern>
-    #         <patelt name="family">
-    #           <string>Noto Color Emoji</string>
-    #         </patelt>
-    #       </pattern>
-    #     </rejectfont>
-    #   </selectfont>
-    # '';
+    # defaultFonts = {
+    #   sansSerif = [ "DejaVu Sans" ];
+    #   serif = [ "Serif" ];
+    #   monospace = [ "UbuntuMono Nerd Font Mono" ];
+    #   emoji = [ "Noto Color Emoji" ];
+    # };
   };
 
   environment.variables = {
@@ -166,7 +161,16 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  #
   programs.kdeconnect.enable = true;
+
+  security.wrappers.btop = {
+    enable = true;
+    owner = "root";
+    group = "root";
+    source = "${pkgs.btop}/bin/btop";
+    capabilities = "cap_perfmon=ep";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
