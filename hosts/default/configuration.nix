@@ -40,6 +40,8 @@
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb = {
@@ -73,9 +75,10 @@
   users.users.timothy = {
     isNormalUser = true;
     description = "timothy";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
+    extraGroups = [ "networkmanager" "wheel" "uinput" ];
+    useDefaultShell = true;
   };
+  users.defaultUserShell = pkgs.zsh;
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -84,13 +87,29 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  programs.hyprland = {
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    ohMyZsh = {
       enable = true;
-      xwayland.enable = true;
+      plugins = [
+        "git"
+        "z"
+      ];
+      theme = "robbyrussell";
+    };
   };
-
-  programs.fish.enable = true;
   programs.auto-cpufreq.enable = true;
+  programs.kdeconnect.enable = true;
+
+  programs.yazi = {
+    enable = true;
+    package = pkgs.yazi.override {
+      _7zz = pkgs._7zz-rar;
+    };
+  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -99,6 +118,7 @@
     nix-search-cli
     firefox
     font-manager
+    wl-clipboard
     kitty
     brightnessctl
     networkmanagerapplet
@@ -110,7 +130,6 @@
     interception-tools
     tealdeer
     interception-tools-plugins.caps2esc
-    ly
   ];
 
   fonts.packages = with pkgs; [
@@ -130,10 +149,10 @@
     # };
   };
 
-  environment.variables = {
-    QT_QPA_PLATFORMTHEME="qt5ct";
-  };
-
+  # environment.variables = {
+  #   QT_QPA_PLATFORMTHEME="qt5ct";
+  # };
+  #
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -162,7 +181,6 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   #
-  programs.kdeconnect.enable = true;
 
   security.wrappers.btop = {
     enable = true;
@@ -185,5 +203,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }

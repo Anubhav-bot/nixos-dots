@@ -1,0 +1,53 @@
+{pkgs, config, inputs, ...} :
+{
+  imports = [
+    ./gaming.nix
+  ];
+
+  environment.systemPackages = [
+    vesktop
+    python314Packages.uv
+    gitkraken
+    grim
+    swappy
+    slurp
+    spotify
+    waytrogen
+    swww
+    rofi
+    megasync
+    antigravity
+    alacritty
+    sway
+    onlyoffice-desktopeditors
+    libnotify
+    dunst
+    clang
+    lazygit
+    obsidian
+    vscode
+    pcmanfm
+    cmatrix
+    postman
+    zathura
+    zathuraPkgs.zathura_pdf_mupdf
+    aria2
+    yt-dlp
+    waybar
+    google-chrome
+    mpv
+    neovim
+    zoxide
+    starship
+    tmux
+    imv
+    vicinae
+    kdePackages.kdenlive
+    umu-launcher
+    scrcpy
+    gnirehtet
+    nodejs
+    gemini-cli-bin
+    ripgrep
+  ];
+}

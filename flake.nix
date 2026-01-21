@@ -11,8 +11,8 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    ax-shell = {
-      url = "github:poogas/Ax-Shell";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -28,6 +28,8 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/default/configuration.nix
+        ./packages/default.nix
+        ./services/default.nix
         home-manager.nixosModules.default
         {
           home-manager.useGlobalPkgs = true;

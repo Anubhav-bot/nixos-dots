@@ -1,6 +1,7 @@
 {
   imports = [
     ./packages/default.nix
+    ./services/default.nix
   ];
   
   home.username = "timothy";
