@@ -4,7 +4,7 @@
     ./gaming.nix
   ];
 
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     vesktop
     python314Packages.uv
     gitkraken

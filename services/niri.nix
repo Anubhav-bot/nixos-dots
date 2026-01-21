@@ -4,7 +4,7 @@
       enable = true;
       useNautilus = false;
   };
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     xwayland-satellite
   ];
 }

@@ -1,6 +1,6 @@
 {config, pkgs, inputs, ...}:
 {
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     lutris
     antimicrox
   ];
