@@ -21,7 +21,11 @@
     sway
     onlyoffice-desktopeditors
     libnotify
-    dunst
+    # dunst #not needed with noctalia-shell
+    # #test
+    adw-gtk3
+    nwg-look
+    # #
     clang
     lazygit
     obsidian
