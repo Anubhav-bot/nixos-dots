@@ -2,7 +2,7 @@
 
   imports = [
     ./git.nix
-    # ./theme.nix #not needed if using noctalia-shell
+    ./theme.nix #not needed if using noctalia-shell
     ./viber.nix
   ];
 
