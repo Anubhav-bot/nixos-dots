@@ -1,15 +1,9 @@
 {pkgs, inputs, config, ...}:
 {
   imports = [
-    # ./catppuccin.nix
   ];
 
   home.packages = with pkgs; [
-    # libsForQt5.qtstyleplugin-kvantum
-    # libsForQt5.qt5ct
-    # qt6Packages.qt6ct
-    # qt6Packages.qtstyleplugin-kvantum
-    
     kdePackages.qt6ct
     adw-gtk3
     nwg-look
@@ -37,11 +31,22 @@
   #
 
   # NOCTALIA
-  # gtk = {
-  #     enable = true;
-  #     theme.package = pkgs.adw-gtk3;
-  #     theme.name = "adw-gtk3";
-  # };
+  
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style.name = "noctalia";
+  };
+
+  gtk = {
+      enable = true;
+      iconTheme.package = pkgs.papirus-icon-theme;
+      iconTheme.name = "Papirus-Dark";
+
+      colorScheme = "dark";
+      theme.package = pkgs.adw-gtk3;
+      theme.name = "adw-gtk3";
+  };
 
   home.pointerCursor = {
     name = "capitaine-cursors";
@@ -49,10 +54,5 @@
     size = 24;
 
     hyprcursor.enable = true;
-  };
-
-
-  home.sessionVariables = {
-    # QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 }

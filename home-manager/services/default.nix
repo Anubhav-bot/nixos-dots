@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    # ./gammastep.nix
+    ./gammastep.nix
   ];
 
   home.packages = with pkgs; [

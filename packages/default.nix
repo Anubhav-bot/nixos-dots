@@ -5,7 +5,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    icu ##test
     vesktop
+    appimage-run
     python314Packages.uv
     gitkraken
     grim
@@ -15,14 +17,11 @@
     waytrogen
     swww
     rofi
-    megasync
     antigravity
     alacritty
-    sway
     onlyoffice-desktopeditors
     libnotify
-    # dunst #not needed with noctalia-shell
-    # #
+    dunst #not needed with noctalia-shell
     clang
     lazygit
     obsidian
@@ -42,8 +41,7 @@
     starship
     tmux
     imv
-    vicinae
-    kdePackages.kdenlive
+    # kdePackages.kdenlive
     umu-launcher
     scrcpy
     gnirehtet

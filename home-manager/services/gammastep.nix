@@ -2,7 +2,10 @@
 {
   services.gammastep = {
     enable = true;
-    provider = "geoclue2";
+    provider = "manual";
+
+    latitude = "27.7103";
+    longitude = "85.3222";
 
     duskTime = "18:35-20:15";
     dawnTime = "6:00-7:45";

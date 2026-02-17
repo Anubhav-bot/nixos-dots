@@ -1,6 +1,7 @@
 {
   description = "Timothy's nixos flake :)";
 
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -8,8 +9,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    catppuccin.url = "github:catppuccin/nix";
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -20,9 +19,14 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vicinae-extensions = {
+      url = "github:vicinaehq/extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, auto-cpufreq, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -30,6 +34,7 @@
         ./hosts/default/configuration.nix
         ./packages/default.nix
         ./services/default.nix
+        auto-cpufreq.nixosModules.default
         home-manager.nixosModules.default
         {
           home-manager.useGlobalPkgs = true;
@@ -37,14 +42,12 @@
 
           home-manager.users.timothy.imports = [
             ./home-manager/home.nix
-            inputs.catppuccin.homeModules.catppuccin
           ];
 
           home-manager.extraSpecialArgs = { 
             inherit inputs;
           };
         }
-        inputs.auto-cpufreq.nixosModules.default
       ];
     };
 

@@ -1,7 +1,8 @@
 {pkgs, config, inputs, ...} :
 {
   imports = [
-    ./noctalia-shell.nix
+    # ./noctalia-shell.nix
     ./niri.nix
+    # ./hyprland.nix
   ];
 }

@@ -24,6 +24,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  programs.nm-applet.enable = false;
+  services.upower.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kathmandu";
@@ -75,34 +77,33 @@
   users.users.timothy = {
     isNormalUser = true;
     description = "timothy";
-    extraGroups = [ "networkmanager" "wheel" "uinput" ];
+    extraGroups = [ "networkmanager" "wheel" "uinput" "input" ];
     useDefaultShell = true;
   };
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.fish;
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   #Bluetooth
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  services.blueman.enable = false;
+  programs.fish.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "z"
-      ];
-      theme = "robbyrussell";
-    };
-  };
+  # programs.zsh = {
+  #   enable = true;
+  #   enableCompletion = true;
+  #   autosuggestions.enable = true;
+  #   syntaxHighlighting.enable = true;
+  #   ohMyZsh = {
+  #     enable = true;
+  #     plugins = [
+  #     ];
+  #   };
+  # };
   programs.auto-cpufreq.enable = true;
   programs.kdeconnect.enable = true;
+  programs.sway.enable = true;
 
   programs.yazi = {
     enable = true;
@@ -112,6 +113,8 @@
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  #
+
   environment.systemPackages = with pkgs; [
     vim
     git
@@ -121,7 +124,6 @@
     wl-clipboard
     kitty
     brightnessctl
-    networkmanagerapplet
     fzf
     playerctl
     btop
@@ -149,10 +151,6 @@
     # };
   };
 
-  # environment.variables = {
-  #   QT_QPA_PLATFORMTHEME="qt5ct";
-  # };
-  #
   nix.gc = {
     automatic = true;
     dates = "weekly";
