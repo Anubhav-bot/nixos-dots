@@ -41,6 +41,7 @@
     starship
     tmux
     imv
+    vicinae
     # kdePackages.kdenlive
     umu-launcher
     scrcpy
