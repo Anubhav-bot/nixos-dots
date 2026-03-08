@@ -7,7 +7,7 @@
     package = pkgs.vicinae;
     enable = true;
     systemd = {
-      enable = true;
+      enable = false; # *
       autoStart = true; # default: false
       environment = {
         USE_LAYER_SHELL = 1;

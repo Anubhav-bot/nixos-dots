@@ -17,11 +17,11 @@
     waytrogen
     swww
     rofi
-    antigravity
+    antigravity-fhs
+    code-cursor-fhs
     alacritty
     onlyoffice-desktopeditors
     libnotify
-    dunst #not needed with noctalia-shell
     clang
     lazygit
     obsidian
@@ -45,6 +45,7 @@
     # kdePackages.kdenlive
     umu-launcher
     scrcpy
+    android-tools
     gnirehtet
     nodejs
     gemini-cli-bin

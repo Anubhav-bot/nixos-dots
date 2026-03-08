@@ -88,6 +88,8 @@
   #Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = false;
+
+  hardware.graphics.enable = true;
   programs.fish.enable = true;
 
   # programs.zsh = {

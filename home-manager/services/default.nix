@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./gammastep.nix
+    # ./gammastep.nix # disable when using noctalia-shell
     # ./vicinae.nix
   ];
 
