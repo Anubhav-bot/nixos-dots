@@ -4,9 +4,12 @@
     ./gaming.nix
   ];
 
+  programs.gpu-screen-recorder.enable = true;
+
   environment.systemPackages = with pkgs; [
     icu ##test
     vesktop
+    gpu-screen-recorder-gtk
     appimage-run
     python314Packages.uv
     gitkraken
