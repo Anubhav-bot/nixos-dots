@@ -2,6 +2,7 @@
   imports = [
     ./packages/default.nix
     ./services/default.nix
+    ./mime.nix
   ];
   
   home.username = "timothy";

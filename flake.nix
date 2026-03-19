@@ -30,12 +30,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        # IMPORTANT: To ensure compatibility with the latest Firefox version, use nixpkgs-unstable.
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, auto-cpufreq, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
+
       modules = [
         ./hosts/default/configuration.nix
         ./packages/default.nix
@@ -50,9 +59,7 @@
             ./home-manager/home.nix
           ];
 
-          home-manager.extraSpecialArgs = { 
-            inherit inputs;
-          };
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
         }
       ];
     };
