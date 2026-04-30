@@ -21,6 +21,7 @@
   #   # iconTheme.package = pkgs.nordzy-icon-theme;
   #   iconTheme.package = pkgs.papirus-icon-theme;
   #   iconTheme.name = "Papirus-Dark";
+  #   gtk4.theme = config.gtk.theme;
   #
   #   theme.package = pkgs.tokyonight-gtk-theme;
   #   theme.name = "Tokyonight-Dark";
@@ -42,12 +43,15 @@
       enable = true;
       iconTheme.package = pkgs.papirus-icon-theme;
       iconTheme.name = "Papirus-Dark";
+      gtk4.theme = config.gtk.theme;
 
       colorScheme = "dark";
       theme.package = pkgs.adw-gtk3;
       theme.name = "adw-gtk3";
   };
 
+
+  # Cursor
   home.pointerCursor = {
     name = "capitaine-cursors";
     package = pkgs.capitaine-cursors;

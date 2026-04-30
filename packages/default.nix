@@ -12,7 +12,6 @@
     gpu-screen-recorder-gtk
     appimage-run
     python314Packages.uv
-    gitkraken
     grim
     swappy
     slurp
@@ -20,8 +19,14 @@
     waytrogen
     swww
     rofi
+
     antigravity-fhs
     code-cursor-fhs
+    zed-editor-fhs
+
+    opencode
+    lsof
+
     alacritty
     onlyoffice-desktopeditors
     libnotify
