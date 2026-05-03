@@ -10,7 +10,6 @@
     icu ##test
     vesktop
     gpu-screen-recorder-gtk
-    appimage-run
     python314Packages.uv
     grim
     swappy
