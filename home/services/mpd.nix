@@ -1,4 +1,5 @@
-{ pkgs, config, inputs, ...}:
+{ pkgs, config, inputs, ... }:
+
 {
   services.mpd = {
     enable = true;
@@ -10,9 +11,7 @@
       }
     '';
 
-    # Optional:
-    # network.listenAddress = "any"; # if you want to allow non-localhost connections
-    network.startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+    network.startWhenNeeded = true;
   };
 
   services.mpd-mpris = {

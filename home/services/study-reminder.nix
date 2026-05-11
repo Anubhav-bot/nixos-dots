@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Install the script
   home.file.".local/bin/study-reminder.sh" = {
     executable = true;
     text = ''
@@ -64,7 +63,7 @@
         random_question="''${questions[RANDOM % ''${#questions[@]}]}"
         ${pkgs.libnotify}/bin/notify-send "$random_question" -a "study-reminder"
 
-        if [ -e "/home/timothy/.local/share/anubhav/mixkit-attention-bell-ding-586.wav" ]; then 
+        if [ -e "/home/timothy/.local/share/anubhav/mixkit-attention-bell-ding-586.wav" ]; then
           mpv --no-video "/home/timothy/.local/share/anubhav/mixkit-attention-bell-ding-586.wav"
         else
           ${pkgs.libnotify}/bin/notify-send "audio file not found"
@@ -75,7 +74,6 @@
     '';
   };
 
-  # Systemd user service
   systemd.user.services.study-reminder = {
     Unit = {
       Description = "Study Reminder Notifications";

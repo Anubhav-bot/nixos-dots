@@ -39,7 +39,7 @@
     name = "Viber";
     exec = ''
       env FONTCONFIG_PATH=${config.xdg.configHome}/fontconfig/viber viber %U
-      '';
+    '';
     icon = "viber";
     terminal = false;
     categories = [ "Network" "InstantMessaging" ];

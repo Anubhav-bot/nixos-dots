@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -10,14 +10,14 @@
       "x-scheme-handler/about" = [ "zen-beta.desktop" "firefox.desktop" ];
       "x-scheme-handler/unknown" = [ "zen-beta.desktop" "firefox.desktop" ];
 
-      "x-scheme-handler/viber" = ["viber.desktop"];
-      "x-scheme-handler/postman" = ["Postman.desktop"];
+      "x-scheme-handler/viber" = [ "viber.desktop" ];
+      "x-scheme-handler/postman" = [ "Postman.desktop" ];
 
-      "application/pdf" = ["org.pwmt.zathura.desktop" "zen-beta.desktop" "firefox.desktop"];
-      "inode/directory" = ["pcmanfm.desktop"];
-      "video/mp4" = ["umpv.desktop"];
-      "image/png" = ["imv-dir.desktop"];
-      "image/jpeg" = ["imv-dir.desktop"];
+      "application/pdf" = [ "org.pwmt.zathura.desktop" "zen-beta.desktop" "firefox.desktop" ];
+      "inode/directory" = [ "pcmanfm.desktop" ];
+      "video/mp4" = [ "umpv.desktop" ];
+      "image/png" = [ "imv-dir.desktop" ];
+      "image/jpeg" = [ "imv-dir.desktop" ];
     };
   };
 }

@@ -1,4 +1,5 @@
-{ pkgs, config, inputs, ...}:
+{ pkgs, config, inputs, ... }:
+
 {
   services.gammastep = {
     enable = true;
@@ -15,18 +16,7 @@
       night = 3700;
     };
 
-# Tray Icon
     tray = true;
-
     enableVerboseLogging = true;
-
-    # settings = {
-    #   general = {
-    #     adjustment-method = "randr";
-    #   };
-    #   randr = {
-    #     screen = 0;
-    #   };
-    # };
   };
 }

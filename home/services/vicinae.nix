@@ -1,14 +1,12 @@
-{ pkgs, config, inputs, ...}:
+{ pkgs, config, inputs, ... }:
+
 {
-  imports = [
-    # inputs.vicinae.homeManagerModules.default
-  ];
   services.vicinae = {
     package = pkgs.vicinae;
     enable = true;
     systemd = {
-      enable = false; # *
-      autoStart = true; # default: false
+      enable = false;
+      autoStart = true;
       environment = {
         USE_LAYER_SHELL = 1;
       };
@@ -44,10 +42,6 @@
       nix
       aria2-manager
       wifi-commander
-
-      # Extension names can be found in the link below, it's just the folder names
-      #https://github.com/vicinaehq/extensions/tree/main/extensions
     ];
-
   };
 }
